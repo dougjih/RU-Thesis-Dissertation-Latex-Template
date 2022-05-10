@@ -5,7 +5,7 @@
 
 \section{Discussion}
 
-We have investigated and presented the clustering performances of many fully-computerized clustering methods. Compared to Mclust using $L^{1}$-norm's performances, which serve as the baseline, the relative performances of the best clusterers are shown in Table \ref{table:Relative clusterer performances}.
+We have investigated and presented the clustering performances of many fully-computerized clustering methods. Compared to Mclust using $L^{1}$-norm's performances, which serve as the baseline, the relative performances of the best clusterers are shown in \cref{table:Relative clusterer performances}.
 
 \begin{table}[htbp]
 \centering
@@ -45,7 +45,7 @@ In terms of computational costs, although this thesis does not present them for 
 
 Regarding the choice of clustering evaluation metrics, the prior work by O'Donnell in \cite{odonnell_clustering_2021} opts to use solely percentages of error-free clustering results as the metric. This metrics measures how often the clustering result for a simulated admixture has no error, such that all computed labels are consistent with the ground truth. In practice, however, with real EPGs, no clustering method can reliably produce perfect results, and when ground truth is unavailable, as would be in real forensic cases, there is no way to know with certainty how accurate a clustering result is. In our opinion, the choice of percentages of error-free clustering might make sense if the results are to be used directly to answer whether two cells have the same genotype or not, \emph{and} if the data are sufficiently clean. However, if either of these conditions is not true, then we argue that more general-purpose clustering evaluation metrics may be more meaningful for downstream interpretation.
 
-For this thesis, we have constructed a software processing pipeline that starts with LFTDI EPG data files as inputs, preprocesses them to a more workable data format, performs combinations feature transformations and clustering methods on the data, collects clustering labels, calculates performance metrics, and generates reports on the results. The software is described further in Appendix \ref{appendix:Software Work}.
+For this thesis, we have constructed a software processing pipeline that starts with LFTDI EPG data files as inputs, preprocesses them to a more workable data format, performs combinations feature transformations and clustering methods on the data, collects clustering labels, calculates performance metrics, and generates reports on the results. The software is described further in \cref{appendix:Software Work}.
 
 Ultimately, the usefulness of clustering single-cell EPG data depends entirely on the downstream user. Likely, the motivation of using clustering results to aid in the calculation of likelihood ratios still holds true \cite{grgicak_large-scale_2020}.
 

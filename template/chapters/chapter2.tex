@@ -8,7 +8,7 @@ Various preparatory and exploratory work is necessary prior to performing the cl
 \section{Data Preprocessing}
 \label{section:Data Preprocessing}
 
-The EPG data files from the LFTDI are in a specific format. For this thesis project, these data files are considered the raw inputs. Table \ref{table:Excerpt of an LFTDI EPG data file} shows an example portion of an LFTDI data file. Each row is associated with a unique combination of ``Sample File'' and ``Marker''; and it is followed by a variable number of allele-size-height tuples. This data format is not suitable for clustering algorithms, as they expect a row for each data sample, and a column for each feature. (Alternatively, they often also accept a matrix of pre-computed pairwise distances.) Therefore, a transformation of the raw data into a different format is necessary.
+The EPG data files from the LFTDI are in a specific format. For this thesis project, these data files are considered the raw inputs. \Cref{table:Excerpt of an LFTDI EPG data file} shows an example portion of an LFTDI data file. Each row is associated with a unique combination of ``Sample File'' and ``Marker''; and it is followed by a variable number of allele-size-height tuples. This data format is not suitable for clustering algorithms, as they expect a row for each data sample, and a column for each feature. (Alternatively, they often also accept a matrix of pre-computed pairwise distances.) Therefore, a transformation of the raw data into a different format is necessary.
 
 \begin{landscape}
 \begin{table}[htbp]
@@ -61,16 +61,16 @@ In this thesis, software code is written to preprocess the raw data files into a
   \item Transform:
   \begin{enumerate}
     \item Remove data samples from bulk mixtures; Retain only single cell data samples
-    \item Remove data with unexpected markers and alleles for the kit (\ref{section:Loci and Alleles}) used to extract EPGs in the laboratory
+    \item Remove data with unexpected markers and alleles for the kit (\cref{appendix:section:Loci and Alleles}) used to extract EPGs in the laboratory
     \item Transform data such that each row is a unique ``Sample File'', and each column is a unique locus-allele-measurement tuple
   \end{enumerate}
 \end{enumerate}
 
-To compute performance metrics for clustering results, extraction of the ground truth (or true labels) from the raw data is necessary. The ground truth is available for the LFTDI EPG data in that each ``Sample File'' is labeled with an identifier that corresponds to the same identifier in a table of known genotypes that the LFTDI also provides. This enables us to evaluate the probable comparative performances of different methods. All the available identifiers are listed in \ref{subsection:Source IDs and Sample Types}. 
+To compute performance metrics for clustering results, extraction of the ground truth (or true labels) from the raw data is necessary. The ground truth is available for the LFTDI EPG data in that each ``Sample File'' is labeled with an identifier that corresponds to the same identifier in a table of known genotypes that the LFTDI also provides. This enables us to evaluate the probable comparative performances of different methods. All the available identifiers are listed in \cref{subsection:Source IDs and Sample Types}. 
 
 In contrast, in real forensic use cases, the true genotypes are unknown. There is no guarantee that clustering single cell EPGs will correctly group cells according to genotypes. Instead, a level of probability of correctness can be established, and the clustering result can be used to assist in other stages of computational forensic analysis.
 
-Table \ref{table:Excerpt of an EPG data file after preprocessing} shows an excerpt of EPG data after preprocessing. Each row is a distinct sample file, and each column is a distinct tuple of locus, allele, and measurement.
+\Cref{table:Excerpt of an EPG data file after preprocessing} shows an excerpt of EPG data after preprocessing. Each row is a distinct sample file, and each column is a distinct tuple of locus, allele, and measurement.
 
 \begin{landscape}
 \begin{table}[htbp]
@@ -118,7 +118,7 @@ A02\_RD16-0003-12B-p11-08L-GFT\_01.hid &                       NaN &            
 
 \subsection{Equivalence to EPG-Vector}
 
-O'Donnell \cite{odonnell_clustering_2021} proposes that an EPG-vector is created from concatenation of florescence values indexed by a consistent ordering of loci and each of their allelic variants. In this arrangement, a vector consists of 1,092 elements. In comparison, the data transformation step in this thesis also generates a ``feature vector'' that also consists of florescence values for each of the loci and their allelic variants---although without using an explicit formula of indexing---with a consistent ordering of loci and each of their allelic variants. In this arrangement, a feature vector consists of 576 elements. The numbers of elements are different as in \cite{odonnell_clustering_2021}, a multiplier factor of 4 is used to conservatively reserve enough index positions for all allelic variants across all loci, even though not all loci require this many index positions. In this thesis, the feature vector consists of exactly all the loci and the allelic variants that the extraction kit specifies as shown in Appendix \ref{section:Loci and Alleles}.
+O'Donnell \cite{odonnell_clustering_2021} proposes that an EPG-vector is created from concatenation of florescence values indexed by a consistent ordering of loci and each of their allelic variants. In this arrangement, a vector consists of 1,092 elements. In comparison, the data transformation step in this thesis also generates a ``feature vector'' that also consists of florescence values for each of the loci and their allelic variants---although without using an explicit formula of indexing---with a consistent ordering of loci and each of their allelic variants. In this arrangement, a feature vector consists of 576 elements. The numbers of elements are different as in \cite{odonnell_clustering_2021}, a multiplier factor of 4 is used to conservatively reserve enough index positions for all allelic variants across all loci, even though not all loci require this many index positions. In this thesis, the feature vector consists of exactly all the loci and the allelic variants that the extraction kit specifies as shown in \cref{appendix:section:Loci and Alleles}.
 
 Compared to the EPG-vector formulation, the data transformation step in this thesis produces an equivalent result, although the data format is different, and the ordering is different. Therefore, the EPG feature vectors in the two studies are not directly comparable, although the methodologies are equivalent. (Software code and data from \cite{odonnell_clustering_2021} are unavailable; therefore, in this thesis we independently reproduce the methodology.)
 
@@ -128,7 +128,7 @@ Simulated admixtures are generated from the 2,477 available single-cell EPG data
 
 \subsection{Admixture Types}
 
-The simulated admixtures follow the design in \cite{odonnell_clustering_2021}, with 11 types of admixtures of various numbers of contributors and mixture ratios as shown in Table \ref{table:Admixture types simulated}. In this thesis, 1,000 trial runs of each admixture type are generated using pseudo-random selection of genotypes and EPGs.
+The simulated admixtures follow the design in \cite{odonnell_clustering_2021}, with 11 types of admixtures of various numbers of contributors and mixture ratios as shown in \cref{table:Admixture types simulated}. In this thesis, 1,000 trial runs of each admixture type are generated using pseudo-random selection of genotypes and EPGs.
 
 \begin{table}[htbp]
 \centering
@@ -156,11 +156,11 @@ Admixture Type &  Number of Contributors &    Numbers of EPGs \\
 \subsection{Source IDs and Sample Types}
 \label{subsection:Source IDs and Sample Types}
 
-More EPG data have become available from the LFTDI since the O'Donnell study \cite{odonnell_clustering_2021}. Whereas it presents EPGs from five genotypes, at the time this thesis's experiments take place, there are EPGs from 52 distinct genotypes available. Table \ref{table:Source IDs and counts} lists the source IDs and counts of EPGs. Each ID number corresponds to a genotype. The letter suffix specifies the type of body fluid: A for saliva, B for blood, and C for semen. The absence of a suffix denotes a saliva sample.
+More EPG data have become available from the LFTDI since the O'Donnell study \cite{odonnell_clustering_2021}. Whereas it presents EPGs from five genotypes, at the time this thesis's experiments take place, there are EPGs from 52 distinct genotypes available. \Cref{table:Source IDs and counts} lists the source IDs and counts of EPGs. Each ID number corresponds to a genotype. The letter suffix specifies the type of body fluid: A for saliva, B for blood, and C for semen. The absence of a suffix denotes a saliva sample.
 
 For comparison, this thesis generates admixtures from EPGs from only saliva samples, admixtures from EPGs from only blood samples, and admixtures from all available EPGs.
 
-Table \ref{table:Counts of genotypes by sample type} lists the numbers of genotypes in each of the sample types. Table \ref{table:Counts of EPGs by sample type} lists the numbers of EPGs from each of the sample types.
+\Cref{table:Counts of genotypes by sample type} lists the numbers of genotypes in each of the sample types. \Cref{table:Counts of EPGs by sample type} lists the numbers of EPGs from each of the sample types.
 
 \begin{longtable}{lr}
 \toprule
@@ -275,7 +275,7 @@ Another dimension reduction algorithm, t-Distributed Stochastic Neighbor Embeddi
 
 T-SNE is also a data visualization method that maps high-dimensional data to two or three dimensions \cite{maaten_visualizing_2008}\cite{wattenberg_how_2016}. It is in the category of methods that are nonlinear and try to preserve local structures at the expense of not preserving pairwise distances on a global scale and having less interpretatability. Although t-SNE and UMAP both are in the same category, they require different hyper-parameters.
 
-Scikit-learn \cite{pedregosa_scikit-learn_2011} contains implementations of PCA and t-SNE. They produce the example data visualization using t-SNE in Figures \ref{fig:N5R1[0]-t-SNE (metric=cosine), X_heights}, \ref{fig:N5R2[0]-t-SNE (metric=cosine), X_heights}, and \ref{fig:N5R3[0]-t-SNE (metric=cosine), X_heights}. Cosine distance is used as the similarity measure as cosine distance discriminates more accurately than Euclidean distance does \cite{odonnell_clustering_2021}. An assumption is that the variations in magnitudes across loci are relatively small compared to the variations in magnitudes across EPGs. This means that discriminating based on only the direction---not the magnitude---of data is usually more helpful than not.
+Scikit-learn \cite{pedregosa_scikit-learn_2011} contains implementations of PCA and t-SNE. They produce the example data visualization using t-SNE in \cref{fig:N5R1-t-SNE}, \cref{fig:N5R2-t-SNE}, and \cref{fig:N5R3-t-SNE}. Cosine distance is used as the similarity measure as cosine distance discriminates more accurately than Euclidean distance does \cite{odonnell_clustering_2021}. An assumption is that the variations in magnitudes across loci are relatively small compared to the variations in magnitudes across EPGs. This means that discriminating based on only the direction---not the magnitude---of data is usually more helpful than not.
 
 In the figures, it is apparent that t-SNE is unable to clearly separate EPGs of the five genotypes in the example ``N5R1'' admixture. T-SNE appears more successful in the example ``N5R2'' admixture, and four EPGs of genotype 16 are separated from the majority cluster. In the example ``N5R3'' admixture, t-SNE has difficulty separating the EPGs of genotypes 17 and 40, and it incorrectly places the EPGs of genotype 28 far apart.
 
@@ -283,22 +283,22 @@ In the figures, it is apparent that t-SNE is unable to clearly separate EPGs of 
 \centering
 \includegraphics{./figures/data_visualization/N5R1[0]-t-SNE (metric=cosine), X_heights.pdf}
 \caption{t-SNE 2-D projection of an example ``N5R1'' admixture (4, 16, 20, 20, 20), cosine distance}
-\label{fig:N5R1[0]-t-SNE (metric=cosine), X_heights}
+\label{fig:N5R1-t-SNE}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics{./figures/data_visualization/N5R2[0]-t-SNE (metric=cosine), X_heights.pdf}
 \caption{t-SNE 2-D projection of an example ``N5R2'' admixture (4, 16, 20, 20, 20), cosine distance}
-\label{fig:N5R2[0]-t-SNE (metric=cosine), X_heights}
+\label{fig:N5R2-t-SNE}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics{./figures/data_visualization/N5R3[0]-t-SNE (metric=cosine), X_heights.pdf}
 \caption{t-SNE 2-D projection of an example ``N5R3'' admixture (2, 2, 2, 2, 32), cosine distance}
-\label{fig:N5R3[0]-t-SNE (metric=cosine), X_heights}
+\label{fig:N5R3-t-SNE}
 \end{figure}
 
-In comparison, the example data visualization in Figures \ref{fig:N5R1[0]-PCA, X_heights_normalized_log}, \ref{fig:N5R2[0]-PCA, X_heights_normalized_log}, and \ref{fig:N5R3[0]-PCA, X_heights_normalized_log} show results using PCA on logarithm of normalized EPG data. It is apparent that PCA does not clearly separate some EPGs of genotypes 32 and 43 in the example ``N5R1'' admixture; nor genotypes 26 and 34 in the example ``N5R2'' admixture; nor genotypes 17, 28, 34, and 40 in the example ``N5R3'' admixture.
+In comparison, the example data visualization in \cref{fig:N5R1-PCA}, \cref{fig:N5R2-PCA}, and \cref{fig:N5R3-PCA} show results using PCA on logarithm of normalized EPG data. It is apparent that PCA does not clearly separate some EPGs of genotypes 32 and 43 in the example ``N5R1'' admixture; nor genotypes 26 and 34 in the example ``N5R2'' admixture; nor genotypes 17, 28, 34, and 40 in the example ``N5R3'' admixture.
 
 Overall, these examples show that although data visualization of EPG data could be helpful in providing a sense of how the data are structured, it easily provides false results given noisy EPGs.
 
@@ -306,19 +306,19 @@ Overall, these examples show that although data visualization of EPG data could 
 \centering
 \includegraphics{./figures/data_visualization/N5R1[0]-PCA, X_heights_normalized_log.pdf}
 \caption{PCA 2-D projection of an example ``N5R1'' admixture (4, 16, 20, 20, 20)}
-\label{fig:N5R1[0]-PCA, X_heights_normalized_log}
+\label{fig:N5R1-PCA}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics{./figures/data_visualization/N5R2[0]-PCA, X_heights_normalized_log.pdf}
 \caption{PCA 2-D projection of an example ``N5R2'' admixture (4, 16, 20, 20, 20)}
-\label{fig:N5R2[0]-PCA, X_heights_normalized_log}
+\label{fig:N5R2-PCA}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics{./figures/data_visualization/N5R3[0]-PCA, X_heights_normalized_log.pdf}
 \caption{PCA 2-D projection of an example ``N5R3'' admixture (2, 2, 2, 2, 32)}
-\label{fig:N5R3[0]-PCA, X_heights_normalized_log}
+\label{fig:N5R3-PCA}
 \end{figure}
 
 \section{Summary}
