@@ -426,17 +426,17 @@ by \MakeUppercase{\yourName}\\
 % I am only leaving these \AtEveryBibitem lines in because they were in the original template when I downloaded it. Change these at your own leisure.
 
 % prevent certain fields in references from printing in bibliography
-\AtEveryBibitem{\clearfield{issn}}
-\AtEveryBibitem{\clearlist{issn}}
-\AtEveryBibitem{\clearfield{language}}
-\AtEveryBibitem{\clearlist{language}}
-\AtEveryBibitem{\clearfield{doi}}
-\AtEveryBibitem{\clearlist{doi}}
-\AtEveryBibitem{\clearfield{url}}
-\AtEveryBibitem{\clearlist{url}}
-\AtEveryBibitem{%
-\ifentrytype{online}{}
-    {\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}}
+%\AtEveryBibitem{\clearfield{issn}}
+%\AtEveryBibitem{\clearlist{issn}}
+%\AtEveryBibitem{\clearfield{language}}
+%\AtEveryBibitem{\clearlist{language}}
+%\AtEveryBibitem{\clearfield{doi}}
+%\AtEveryBibitem{\clearlist{doi}}
+%\AtEveryBibitem{\clearfield{url}}
+%\AtEveryBibitem{\clearlist{url}}
+%\AtEveryBibitem{%
+%\ifentrytype{online}{}
+%    {\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}}
 
 \newcommand{\makeBibliography}{
     \clearpage
