@@ -1,5 +1,149 @@
 
-\chapter{Results}
+\chapter{Clustering Techniques}
+\label{ch:Clustering Techniques}
 \thispagestyle{myheadings}
 
-% text of this chapter goes here
+There are many well known clustering techniques in the field of machine learning. This chapter discusses some of them in relation to the problem of clustering EPG data.
+
+\section{Clustering Methods}
+
+Clustering algorithms, given some data samples, each with some quantifiable features, and some measure of similarity based on these features, assign a label to each data sample such that the labels identify groups of data samples that are more similar to other items in the same group than items in different groups. A large number of clustering algorithms have been proposed, implemented and studied. Scikit-learn \cite{pedregosa_scikit-learn_2011}, for example, is a popular software module that implements the most well-known algorithms in machine learning for the Python programming language. As of version 1.0, it implements 10 types of clustering methods. A clustering method may have multiple variants of specific algorithms for executing the computation.
+
+Clustering methods have several characteristics that are significant for considering in the context of clustering single-cell EPGs. For the problem of clustering EPG data without human in the loop, a desirable clustering method has the following characteristics:
+\begin{itemize}
+  \item Parameters: Does not require number of clusters; Does not require case-by-case fine tuning.
+  \item Scalability: No particular demands---EPG data in the simulated admixtures number only up to 100 samples and 5 true clusters per admixture; both numbers are very small in the field of machine learning.
+  \item Evenness of cluster sizes: Must be able to cluster with highly uneven cluster sizes---Forensic samples may have highly uneven mixture ratios of different genotypes; Simulated admixtures of the ``N2R2'' type have a ratio as high as 17.5 to 1.
+  \item Geometry: Restriction to flat-geometry appears acceptable, given that log-normalized florescence values appears suitable for the Gaussian mixtures model method that Mclust uses \cite{odonnell_clustering_2021}. Methods that have no assumption on geometry are also potentially suitable.
+  \item Inductive vs. Transductive: An inductive method can produce a predictive model that can be applied to unseen data. A transductive method produces a result only for the data given and does not produce a predictive model that can be applied to unseen data. For clustering EPG data, the goal is to group EPGs that originate from the same genotype, given a collection of EPGs. Given that the number of possible human genotypes is huge (even considering only the alleles and loci in use, there are approximately $10^{58}$ possible distinct combinations), and that in the application of forensic DNA the objective is to test whether an EPG matches another EPG, the predictive power of an inductive method appears inapplicable. Therefore, both inductive and transductive methods are suitable.
+\end{itemize}
+
+According to these considerations, the following clustering methods in Scikit-learn are potentially suitable methods:
+
+\begin{itemize}
+  \item Gaussian mixtures
+  \item Balanced Iterative Reducing and Clustering using Hierarchies (BIRCH) \cite{zhang_birch_1996}
+  \item Ordering Points To Identify the Clustering Structure (OPTICS) \cite{ankerst_optics_1999}
+  \item Mean-shift \cite{comaniciu_mean_2002}
+  \item Affinity propagation \cite{frey_clustering_2007} 
+\end{itemize}
+
+The following are unsuitable methods and the reasons we think they are unsuitable:
+
+\begin{itemize}
+  \item $k$-Means: requires the number of clusters; assumes even cluster size
+  \item Hierarchical clustering: requires the number of clusters or distance threshold
+  \item Density-Based Spatial Clustering of Applications with Noise (DBSCAN) \cite{ester_density-based_1996}\cite{schubert_dbscan_2017}: requires neighborhood size
+  \item Spectral clustering \cite{jianbo_shi_normalized_2000}: requires the number of clusters; assumes even cluster size
+\end{itemize}
+
+For the Gaussian mixtures model method, the Mclust clustering method using Gaussian mixtures models is tested in \cite{odonnell_clustering_2021} and will be used in this thesis as the baseline for comparison.
+
+In addition, a clustering method called Hierarchical Density-Based Spatial Clustering of Applications with Noise (HDBSCAN) \cite{hutchison_density-based_2013}\cite{mcinnes_accelerated_2017}\cite{mcinnes_hdbscan_2017}, which is not part of Scikit-learn, is explored as its characteristics and performance in exploratory experiments make it a promising method for further experiments.
+
+We will explore the potentially suitable clustering methods in the remainder of this thesis.
+
+\subsection{Mclust}
+
+Mclust is a ``popular R package for model-based clustering, classification, and density estimation based on finite Gaussian mixture modeling.'' \cite{scrucca_mclust_2016} It provides the clustering method presented in \cite{odonnell_clustering_2021} for computerized end-to-end clustering. This thesis uses the same Mclust implementation to generate results that serve as a baseline for performance comparisons with other methods.
+
+Using Mclust for clustering assumes that data are a mixture of two or more groups of data points that are Gaussian-distributed. It is shown in \cite{odonnell_clustering_2021} that this is roughly true if the logarithm of the normalized values of florescence measurements of EPG data are used. This thesis's experiments use the same log-normalizing of data and the same parameter selection. In particular, it uses the same ``VII model,'' which is a Gaussian mixture model that assumes clusters with spherical shape and varying volumes.
+
+\subsection{BIRCH}
+
+Balanced Iterative Reducing and Clustering using Hierarchies (BIRCH) \cite{zhang_birch_1996} is a hierarchical clustering method that does not require a parameter that specifies the number of clusters or a distance threshold ahead of the time. However, it does have a threshold parameter that has an effect similar to that of a distance threshold. It assumes Euclidean distance and estimates centroids incrementally using a construct called ``Clustering Feature Tree''. Its algorithm is incremental and scales well to large datasets.
+
+In this thesis, we will use the default parameter settings in Scikit-learn's implementation.
+
+\subsection{OPTICS}
+
+Ordering Points To Identify the Clustering Structure (OPTICS) \cite{ankerst_optics_1999} is a density-based clustering method that uses a concept of ``reachability'' and in effect provides a version of DBSCAN with variable $\epsilon$ values.
+
+In this thesis, we will use the default parameter settings in Scikit-learn's implementation.
+
+\subsection{Mean Shift}
+
+Mean-shift \cite{comaniciu_mean_2002} is a centroid-based clustering method that iteratively calculates ``mean shift vectors'' in local neighborhoods that point in directions of maximum density increases, and the trajectories of these vectors over iterations converge to points of maximum densities that represent centroids of the discovered clusters.
+
+In this thesis, we will use the default parameter settings in Scikit-learn's implementation.
+
+\subsection{Affinity Propagation}
+
+Affinity propagation \cite{frey_clustering_2007} iteratively computes ``responsibility'' and ``availability'' matrices for all pairs of data samples until it converges to a solution. The computation occurs by ``passing'' messages between pairs of samples.
+
+In this thesis, we will use the default parameter settings in Scikit-learn's implementation.
+
+\subsection{HDBSCAN}
+\label{subsection:HDBSCAN}
+
+HDBSCAN, or Hierarchical Density-Based Spatial Clustering of Applications with Noise, is a density-based clustering method that identifies clusters of data points that have higher relative densities compared to some threshold \cite{hutchison_density-based_2013}\cite{mcinnes_accelerated_2017}. As such, density-based clustering makes no assumption about shapes or sizes of clusters, other than that data points in a cluster have a higher density than their surrounding. HDBSCAN is closely related to DBSCAN \cite{ester_density-based_1996}\cite{schubert_dbscan_2017}. In DBSCAN, the two key parameters are $\epsilon$ and $minPts$. The former defines the maximum allowable distance between two data points that DBSCAN still considers to be in the same ``neighborhood.'' If a data point has more than $minPts$ neighbors within the radius of $\epsilon$, the data point is considered a \textit{core point}. All neighbors within $\epsilon$ of a core point are considered to be in the same cluster as the core points. Points are transitively clustered together as long as the density threshold determined by $minPts$ and $\epsilon$ is maintained.
+
+Selection of the distance threshold parameter is a challenge in using a density-based clustering such as DBSCAN, however, in that a suitable parameter may vary among clusters in a data set, and it may vary among different data sets. HDBSCAN seeks to improve on DBSCAN by providing an automated methodology for selecting the distance threshold parameter. In summary, HDBSCAN first calculates the \textit{mutual reachability distances} among the data points; builds a graph with the data points and their mutual reachability distances as weights of the edges; builds a minimum spanning tree to get a graph with edges that minimize mutual reachability distances; extracts a hierarchy and iteratively removes edges to extract clusters in a way that maximizes a \textit{cluster stability} measure.
+
+For clustering with HDBSCAN, the experiment uses the Python implementation by \cite{mcinnes_hdbscan_2017}. For parameter selection, we select the parameters as follows. For \texttt{min\_cluster\_size}, we use the value of 2, which is also the smallest possible value, for we want to be able to cluster as few as two EPGs of the same genotype in an admixture. For \texttt{min\_samples}, we use the default value that matches the \texttt{min\_cluster\_size} value such that HDBSCAN declares as few points as noise as it can. For \texttt{cluster\_selection\_epsilon}, this requires more discussion in detail.
+
+The \texttt{cluster\_selection\_epsilon} parameter defines the distance threshold under which clusters are always merged. If unspecified, the default value is 0, with which HDBSCAN in effect algorithmically determines varying $\epsilon$ values of DBSCAN. Using a value greater than 0 has the effect of DBSCAN where data points are within $\epsilon$ and HDBSCAN beyond. In this thesis's experiment, we will vary \texttt{cluster\_selection\_epsilon}.
+
+The \texttt{metric} parameter selects the distance metric and defaults to Euclidean. This thesis's experiment will try and compare Euclidean and cosine distances.
+
+The last HDBSCAN parameter this thesis's experiment explores is \texttt{cluster\_selection\_method}. Two methods, ``eom'' and ``leaf'' are available. HDBSCAN uses the specified method to select clusters, either by using an Excess of Mass algorithm or by selecting clusters from leaf nodes of the cluster tree.
+
+\section{Clustering Evaluation Metrics}
+
+To evaluate clustering performance, we need to use certain metrics. Many metrics are available. Some require knowing the ground truth, or true labels, to measure how closely a clustering result match the true groupings. Some do not use the ground truth and instead measure certain characteristics of the clustering result.
+
+Inasmuch as a clustering algorithm may assign values to represent labels that are in general different from the true labels, clustering metrics that use the ground truth must not directly compare equality between labels from a clustering algorithm and labels from the ground truth. For example, given the true labels of $(0, 0, 2, 1, 1)$, clustering results of $(2, 2, 0, 1, 1)$ and $(1, 1, 0, 2, 2)$ are both considered perfect matches, despite their different label values compared to the ground truth label values, for the groupings match perfectly.
+
+Scikit-learn includes several clustering metrics of both types. Those that require the ground truth are Rand index, mutual information, homogeneity, completeness, V-measure \cite{hirschberg_v-measure_2007}, and Fowlkes-Mallows. Those that do not use the ground truth are silhouette coefficient, Calinski-Harabasz index, Davies-Bouldin index, contingency matrix, and pair confusion matrix.
+
+Some of the metrics have variants that adjust for chance of random assignments that happen to be correct. These include the Adjusted Rand Index (ARI) and Adjusted Mutual Information (AMI). According to \cite{romano_adjusting_2015}, ``ARI should be used when the reference clustering has large equal sized clusters; AMI should be used when the reference clustering is unbalanced and there exist small clusters.''
+
+O'Donnell \cite{odonnell_clustering_2021} uses the metrics of 95\% binomial confidence intervals for the results without misclustering and overclustering. This is indicative of a clustering method's performance in making no error compared to the ground truth. This thesis also measures and presents this metrics.
+
+In this thesis, given that the true labels are always available (as indicated by source IDs in the EPG sample names), we use the metrics that require the ground truth.
+
+In examining performances, we will present two types of results. The first is charts of clustering evaluation metrics, which show the means and standard deviations of several common clustering metrics across the admixture types and clusterer types. The second is tables of counts of perfect clustering results as percentages of numbers of trials in terms of homogeneity (lack of mis-clustering) and completeness (lack of over-clustering) with binomial 95\% confidence interval using the Wilson score interval \cite{wilson_probable_1927}. The first type gives an overall measure of clustering performance, whereas the second type focuses on clustering without an error.
+
+\section{Feature Extraction}
+
+The LFTDI EPG data bin florescence measurements into 576 bins, corresponding to combinations of loci and alleles as defined by the GlobalFiler v1 chemistry kit (see \ref{section:Loci and Alleles}). These bins directly correspond to the 576 elements in a feature vector.
+
+In classification and clustering problems, often dimension reduction is tried to improve performance in some way (speed, accuracy, ability to generalize). By extracting the most significant components in fewer dimensions than the input data have, algorithms sometimes perform better by focusing on the most significant part, despite the loss of information.
+
+The classic method of PCA and neural network method of autoencoder are briefly explored in this thesis project, although they are not experimented with further. PCA appears to degrade clustering performance---the loss of information outweighs the potential gain. The effectiveness of autoencoder is unclear. Limitation of both human and computational time prevent experimenting with it further. In that neural network approaches usually need a large amount of data to be effective, and the amount of EPG data is small (2,477 samples) from a machine learning perspective, we expect simulating realistic EPG data is important for experimentation in neural network approaches. We are unfortunately unable to pursue this line of research in the available time frame.
+
+\section{Feature Transformation}
+
+Features are transformed for various reasons. For example, it may be used to fit an underlying assumption of a Gaussian distribution, as in \cite{odonnell_clustering_2021}, where logarithm and normalization are applied to florescence values as after the transform, the data look Gaussian, which is assumed by the Mclust Gaussian mixture model. Another reason is to better accommodate some similarity measure. For example, \cite{odonnell_clustering_2021} points out that normalizing each EPG vector is helpful for comparing similarity, as angles of EPG vectors are more significant than magnitudes of EPG vectors.
+
+Normalization of florescence values in \cite{odonnell_clustering_2021} is done by dividing each florescence value by the sum of florescence values in the EPG. This is equivalent to normalizing using the $L^{1}$ norm. The justification is that logarithm of normalized florescence values approximates a normal distribution. This thesis will experiment with using the $L^{2}$ norm for the reason that an EPG vector thus normalized has a unit length in an Euclidean space.
+
+This thesis also proposes ``per-locus'' normalization approaches that make use of the biological constraint on the number of possible alleles at each locus.
+
+\subsection{Per-Locus Normalization}
+
+In the physiochemical process of extracting EPGs, florescence measurements at the different loci might be distorted in some similar ways, and they may be distorted in some other dissimilar ways. The distortion effects are characterized by probabilistic mathematical models \cite{duffy_exploring_2017}.
+
+For clustering EPGs with distortions, it appears plausible that normalizing the data at each locus could improve the result. Whereas normalizing the entire EPG vector results in the direction of the overall EPG vector, normalizing EPG data at each of the 21 loci of an EPG vector results in the sum of 21 unit-norm vectors. Comparing the two approaches, normalizing the entire EPG vector favors loci with stronger florescence measurements, and normalizing per-locus weighs the loci equally. On the one hand, it can be argued that stronger florescence measurements imply more confidence and should be given more weight. On the other hand, it can be argued that variations in florescence magnitudes among loci is an artifact of the EPG extraction process. Whether this alternative approach has practical merit is evaluated in experiments.
+
+\subsection{Per-Locus Quantization}
+
+Taking per-locus normalization further, it is plausible to ``quantize'' the data into the one or two alleles at each locus, in an attempt to ``denoise'' the data prior to clustering. (Quantization is a process of signal processing that maps input values to a smaller set of discrete allowable values.) Given the biological fact that there must be exactly one or two distinct alleles at each locus, we can proactively identify the largest one or two florescence measurements at each locus, ``quantize'' it or them to normalized values, and zero the remaining measurement values, in an attempt to help clustering algorithms. This attempt could help or hurt the result. On the one hand, we use the biological fact to reduce noise, and possibly remove the unwanted effects of drop-outs and drop-ins. On the other hand, this also could amplify the effects of stutters. Again, whether this alternative approach has practical merit is evaluated in experiments.
+
+\section{Cluster Ensembles}
+
+Given multiple clustering solutions, if not a single solution is best across different data sets, \emph{cluster ensembles} \cite{aggarwal_cluster_2018} attempt to help by calculating a consensus result. The theory is that given clustering solutions from multiple independent and diversified clusterers, the consensus solution could be an improvement over the individual solutions.  Many methods have been studied. A recent survey paper was given by \cite{boongoen_cluster_2018}.
+
+In this thesis, we will identify the top-performing individual clusterers, form cluster ensembles with them, and measure their performances.
+
+This thesis's experiments use the cluster ensembles Python package ``ClusterEnsembles'' \cite{sano_clusterensembles_nodate}. It supports many algorithms: Cluster-based Similarity Partitioning Algorithm (CSPA) \cite{strehl_cluster_2002},  HyperGraph Partitioning Algorithm (HGPA) \cite{strehl_cluster_2002}, Meta-CLustering Algorithm (MCLA) \cite{strehl_cluster_2002}, Hybrid Bipartite Graph Formulation (HBGF) \cite{fern_solving_2004}, and Nonnegative Matrix Factorization (NMF) \cite{li_solving_2007}.
+
+This thesis tests some of these algorithms in both ``Feature-Distributed Clustering'' (FDC) and ``Robust Centralized Clustering'' (RCC) arrangements as described in \cite{strehl_cluster_2002}. With FDC, multiple clusterers have access to different features of the same data samples. With RCC, multiple clusterers have access to the same features and data samples.
+
+\subsection{Per-Locus Clustering}
+
+An idea that we have briefly explored is clustering EPGs on a per-locus basis. To do so, we partition each EPG feature vector into 21 feature vectors corresponding to the 21 loci. We then cluster the data samples 21 times using each of the loci, and obtain 21 sets of labels. To produce one overall set of labels, we use a cluster ensembles method on the 21 sets of labels. However, owing to the results exhibiting a much higher level of over-clustering errors, and as a result of limitation in time, we have not pursued this direction of investigation further.
+
+\section{Summary}
+
+We have described the clustering techniques involved in this thesis's experiments. Many clustering methods exist; some are unsuitable. Some potentially suitable methods have been identified and briefly described. To evaluate their performances, clustering evaluation metrics are necessary, and we have briefly described them. We have considered feature extraction and transformation, and we have proposed methods making use of domain-specific constraints. We also have considered the use of cluster ensembles.

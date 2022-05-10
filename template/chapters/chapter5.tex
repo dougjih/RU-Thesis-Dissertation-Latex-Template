@@ -1,5 +1,74 @@
 
 \chapter{Conclusion}
+\label{ch:Conclusion}
 \thispagestyle{myheadings}
 
-% text of this chapter goes here
+\section{Discussion}
+
+We have investigated and presented the clustering performances of many fully-computerized clustering methods. Compared to Mclust using $L^{1}$-norm's performances, which serve as the baseline, the relative performances of the best clusterers are shown in Table \ref{table:Relative clusterer performances}.
+
+\begin{table}
+\centering
+\begin{tabular}{lllr}
+\toprule
+     Sample Type & Metrics &                 Top-Scoring Clusterer &  Relative Performance \\
+\midrule
+          Saliva &    Mean &                      affinity\_l2\_norm &              1.392331 \\
+          Saliva & Perfect &              meanshift\_per\_locus\_norm &              6.277778 \\
+Saliva, filtered &    Mean &                        mclust\_l2\_norm &              1.027227 \\
+Saliva, filtered & Perfect & hdbscan\_eucl...0.0\_eom\_per\_locus\_norm &              1.432937 \\
+           Blood &    Mean &                        mclust\_l1\_norm &              1.000000 \\
+           Blood & Perfect &                        mclust\_l2\_norm &              1.020179 \\
+ Blood, filtered &    Mean &                        mclust\_l1\_norm &              1.000000 \\
+ Blood, filtered & Perfect &                        mclust\_l1\_norm &              1.000000 \\
+             All &    Mean &              birch\_per\_locus\_quantize &              1.014992 \\
+             All & Perfect &                        mclust\_l2\_norm &              1.040404 \\
+   All, filtered &    Mean &                        mclust\_l2\_norm &              1.001055 \\
+   All, filtered & Perfect &                        mclust\_l1\_norm &              1.000000 \\
+\bottomrule
+\end{tabular}
+\caption{Relative clusterer performances, compared to Mclust using $L^{1}$-norm}
+\label{table:Relative clusterer performances}
+\end{table}
+
+The results show that Mclust remains a strong clusterer in most cases, being the best overall performer for EPGs from blood samples and mixture of blood and saliva samples. Other clusterers surpass in performance in some cases, especially in EPG data from saliva samples. Seeing that the significant differences in results exist, there appear to be significant systematic differences among the EPGs from the saliva samples and EPGs from the blood samples.
+
+Mclust using the $L^{2}$-norm for normalization of florescence data leads to better metrics in some cases and worse metrics in some other cases compared to Mclust using $L^{1}$-norm normalization. There does not appear to be a clear advantage in using either.
+
+The ``per-locus'' normalization and quantization feature transformations that we have proposed are effective in many cases, outperforming the same clustering methods that use whole-vector normalization in most cases. There is potential for more exploration and experiments in this area, especially more effective transformations of features, especially those that take into account of subject domain-specific knowledge.
+
+Cluster ensembles have been explored and tested. The cluster ensembles as tested do not show superior performances compared to individual clusterers. One type of cluster ensemble, MCLA, shows good results in a some cases, yet the results are never leading. However, in real use, cluster ensembles might still have potential in that without knowledge of ground truth and which type of clusterer will perform best, consensus clustering results might be more stable and useful for downstream interpretation.
+
+Simple feature extraction technique such as PCA does not appear to be helpful in the problem of clustering single-cell EPGs. Based on the success of Mclust, the assumption of Gaussian mixtures model appears to hold. Other clustering methods have more sporadic successes.
+
+In terms of computational costs, although this thesis does not present them for the concern that comparing Mclust running in an embedded R environment in Python to other clustering methods running directly in Python seems unfair, we think it is fair to note that Mclust (and Gaussian mixtures model in general) is significantly more computational costly, roughly an order of magnitude more costly, compared to for example HDBSCAN.
+
+Regarding the choice of clustering evaluation metrics, the prior work by O'Donnell in \cite{odonnell_clustering_2021} opts to use solely percentages of error-free clustering results as the metric. This metrics measures how often the clustering result for a simulated admixture has no error, such that all computed labels are consistent with the ground truth. In practice, however, with real EPGs, no clustering method can reliably produce perfect results, and when ground truth is unavailable, as would be in real forensic cases, there is no way to know with certainty how accurate a clustering result is. In our opinion, the choice of percentages of error-free clustering might make sense if the results are to be used directly to answer whether two cells have the same genotype or not, \emph{and} if the data are sufficiently clean. However, if either of these conditions is not true, then we argue that more general-purpose clustering evaluation metrics may be more meaningful for downstream interpretation.
+
+For this thesis, we have constructed a software processing pipeline that starts with LFTDI EPG data files as inputs, preprocesses them to a more workable data format, performs combinations feature transformations and clustering methods on the data, collects clustering labels, calculates performance metrics, and generates reports on the results. The software is described further in Appendix \ref{appendix:Software Work}.
+
+Ultimately, the usefulness of clustering single-cell EPG data depends entirely on the downstream user. Likely, the motivation of using clustering results to aid in the calculation of likelihood ratios still holds true \cite{grgicak_large-scale_2020}.
+
+\section{Future Work}
+
+Several plausible avenues of of investigations have been considered in the course of this thesis study, although have not been pursued further due to limitations in time and human capacity.
+
+\subsection{Different Formulation of Feature Vector}
+
+In the current formulations of feature vectors, whether in \cite{odonnell_clustering_2021} or in this thesis, the features are florescence values of distinct combinations of loci and alleles, and they are all in distinct dimensions that are mutually orthogonal. There is no notion of distinguishing between features from adjacent alleles of the same locus and features from non-adjacent alleles of the same locus, or features from alleles of different loci. From the fact that the EPG extraction process causes artifacts that often results in a florescence value being binned in a wrong adjacent allele and not in the true allele, it is intuitive that the adjacency should be somehow taken into account in the similarity measure. However, it is not at all taken into account in the current formulations of feature vectors.
+
+\subsection{Making Use of Soft Clustering Probabilities}
+
+Some clustering methods provide a measure of probability for each label it assigns. Of the clustering methods this thesis explored, Mclust and HDBSCAN do so. Accounting for these probabilities in interpreting clustering results is called ``soft clustering'' in that the labels are interpreted as probabilistic rather than as definitive. Given that clustering results with realistic data have errors, it is intuitive that such probabilities could be useful as inputs for further analysis downstream.
+
+\subsection{Autoencoder using Neural Network}
+
+An autoencoder is a neural network construct in machine learning that tries to autonomously extract the most significant features in the given data by iteratively adjusting its weights for reconstructing the data while minimizing an error measure \cite{cai_unsupervised_2021}. This method of feature extraction is nonlinear as neural networks are nonlinear, and it involves no direct human intervention in selecting features (an activity called ``feature engineering''). It is unknown whether a suitably trained autoencoder can be used to improve clustering performances on single-cell EPG data.
+
+\subsection{Supervised Learning to Reverse Artifacts in EPG Data}
+
+The artifact-producing process of an EPG extraction laboratory process can be approximately modeled mathematically \cite{duffy_exploring_2017}. Therefore, it is plausible that given enough data, a machine learning model can learn to approximate it as well. Supervised learning could potentially be used to train a model that partially reverses artifacts in EPG data and therefore improves clustering accuracy. In particular, deep-learning approaches for clustering are potentially helpful \cite{karim_deep_2021}. A challenge in attempting a supervised learning approach is in having enough useful data to train a model. Considering that it is costly and time-consuming to obtain single-cell EPG data in a laboratory, simulating realistic EPG data likely is necessary.
+
+\subsection{Use of Distributed Computing}
+
+With more data and uses of neutral networks, computation loads can increase drastically, and they are likely no longer feasible on a personal computer. The use of distributed computing is an obvious solution. Doing so requires foresight and accommodation in both software and hardware approaches. Appropriate software architecture and implementation must be used to enable effective distributed computing, and a distributed computing cluster must be available (for example, the Amarel cluster at Rutgers University).

@@ -1,31 +1,52 @@
 
-\chapter{Introduction and Background}
+\chapter{Introduction}
+\label{ch:Introduction}
 \thispagestyle{myheadings}
 
-\section{Stars}
+\section{Background}
 
-It is common knowledge that the star closest to Earth is the Sun, and also that the Sun is yellow. It is this yellow sunlight which is interesting for some of its properties \cite{scholes2011lessons}. For instance, plants, algae, and cyanobacteria convert this light into energy via photosynthesis. In \ref{fig:firstFig} is a photo of a galaxy which contains many stars.
+A more in-depth coverage of the background, including an introduction to forensic deoxyribonucleic acid (DNA) analysis, history of single cell analysis, and an analysis of the single-cell electropherogram (EPG) data from the Laboratory for Forensic Technology Development \& Integration (LFTDI) is presented by O'Donnell in \cite{odonnell_clustering_2021}. We will briefly cover the key points in the following introduction.
 
-\begin{figure}[ht]
-    \centering
-	\includegraphics[width=0.85\textwidth]{figures/sampleFig1.jpg}
-	\caption[Barred spiral galaxy NGC 1300]{Barred spiral galaxy NGC 1300 photographed by Hubble telescope. While the galaxy in the photo is not our sun, it does emit light, much like our sun. Image credit: NASA.}
-	\label{fig:firstFig}
-\end{figure}
+\subsection{What is Forensic DNA Analysis?}
 
-The stars in the sky are of particular interest to the aptly named \gls{starlabs}, which in many recent experiments has shown promising results in converting this energy in a non-photoelectric sense into usable energy \cite{allen2019fast}. Interestingly, \gls{starlabs} has theorized that the famous superhero known as ``Superman'' converts the light from our sun, which grants his fantastic abilities. There are many methods in industry for converting the sun's energy (of about \SI{1000}{\watt\per\meter\squared}) into electrical energy. Some of these are highlighted in \ref{tbl:sampleTbl1}.
+Forensic DNA analysis compares DNA materials from biological samples to determine the likelihood they have the same genotype or not. Such determinations often serve as evidence in criminal trials for prosecution and defense alike. Individual humans, unless they are identical twins, have distinct genotypes and DNA sequences. In practice, entire DNA sequences are not compared; selected parts called \emph{loci} are. Specific loci of DNA are selected for forensic use as they are highly variable among distinct genotypes and suitable for physiochemical extraction and analysis. For example, the United States Federal Bureau of Investigation (FBI) maintains the Combined DNA Index System (CODIS) \cite{noauthor_codis_nodate} that specifies 20 loci.
 
-\begin{table}[ht]
-\centering
-\caption[Selected renewable energy installations]{Renewable energy installations around the world -- the energy generated at these sites is ultimately derived from the sun}
-\label{tbl:sampleTbl1}
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{llll}
-\hline
-installation & type & capacity (GW) & location \\ \hline
-Longyangxia Dam & photovoltaic & 0.85 & China \\
-Gansu Wind Farm & wind & 6 & China \\
-Sihwa Lake & tidal & 0.254 & South Korea \\ \hline
-\end{tabular}%
-}
-\end{table}
+In criminal cases, prosecution and defense use DNA forensic methods to estimate the likelihood of a collected DNA sample having the same genotype as that of a specific person. To evaluate the likelihood whether two DNA samples are from the same genotype, specific parts of DNA sequences are compared. If they all appear to match, then the two DNA samples are likely to have the same genotype. Being as physical collections and measurements of DNA samples always introduce uncertainty---through physical degradation of samples, addition of measurement noises, and laboratory process artifacts---answers are in terms of probabilities, not certainty.
+
+The parts of DNA sequences that are compared, called \emph{loci}, have been identified by forensic scientists to be parts of the human genome that contain variable numbers of repetitive sequences that are distinctive among people of distinct genotypes. By the fact that human chromosomes are in pairs, with each of their genetic makeups coming from each of parents, at each locus there are two numbers of repeats. These numbers of repeats may be different or the same. Each number of repeat represents a gene variant called an \emph{allele}.
+
+To measure alleles at the several loci, select parts in the DNA sequence are physiochemically separated, extracted, amplified, and transformed into electropherograms (EPGs) that indicate the measured repeat lengths. These intricate physiochemical processes add distortion and noises called \emph{artifacts} \cite{duffy_exploring_2017}. These artifacts, combined with degradation in the DNA samples, make DNA matching a challenging problem.
+
+\subsection{What is Single Cell?}
+
+Traditionally, DNA samples have been analyzed using \emph{bulk samples} that contain multiple cells and potentially multiple contributors of distinct genotypes, for technological and economical reasons. Computational analysis of EPGs from such bulk samples is found to be difficult when the number of contributors is greater than three \cite{swaminathan_noc_2015}\cite{swaminathan_ceesit_2016}. Single-cell extraction techniques have advanced in laboratories in recent years to become more practical \cite{sheth_towards_2021}. EPGs from single cells always represent a single contributor. However, as a result of sample degradation and process artifacts, matching them by genotype is still challenging. Computational clustering of single-cell EPGs is considered to have promise in helping the problem of computing likelihood \cite{odonnell_clustering_2021}.
+
+\subsection{What is Clustering?}
+
+Clustering is the grouping of similar items, such that items that are assigned to a group are more similar to one another than to items that are assigned to a different group \cite{aggarwal_cluster_2018}. The measure of similarity depends on the application. The quality of the selected similarity measure therefore affects the quality of the clustering result. Here, we are interested in clustering by computational means that do not require human intervention.
+
+Clustering potentially can help group EPG data samples by their genotypes. Indeed, if the data are perfectly noiseless and accurate, then clustering is trivial and the result is also perfectly accurate. With real-world data that have artifacts, clustering results have errors. Testing different clustering methods and comparing their performances is the main subject of this thesis.
+
+\subsection{Problem Description and Significance}
+
+The problem at hand is to explore computational clustering techniques on single-cell EPG data to try to find potential improvements over the Mclust method tested in \cite{odonnell_clustering_2021}. The exploration is done in the context of applied computer science and the sub-field of machine learning.
+
+The significance of clustering single-cell EPG data is that such clustering results can be used in an analysis pipeline as inputs to aid further computational analysis of the likelihood of a forensic match.
+
+\section{Prior Work}
+
+To the best of our knowledge, O'Donnell \cite{odonnell_clustering_2021} was the first and only study on using clustering algorithms to group single-cell EPGs by their source genotypes. In accomplishing this, it proposed a ``high-pass filter'' for excluding EPGs with insufficient sum of florescence; it defined an EPG-vector construction for mapping EPG data to a feature vector; it defined 11 simulated types of admixtures with various numbers of genotypes and mixture ratios; and it presented experimental results using two clustering methods of k-means and Mclust \cite{scrucca_mclust_2016}.
+
+\section{Objective and Approach}
+
+In this thesis project, the general objective is to further explore clustering techniques beyond those explored and presented in \cite{odonnell_clustering_2021}. O'Donnell \cite{odonnell_clustering_2021} presents clustering results from using two clustering methods: $k$-means and Mclust. $k$-means requires an analyst to estimate a $k$ value for the number of clusters---from examining data visualization, for example---and therefore is an ``analyst-in-the-loop'' method. Mclust, in contrast, estimates the number of clusters without needing an external estimate, and therefore is a ``computerized end-to-end'' method.
+
+This thesis focuses on further exploring computerized methods that are well known in the machine learning field. In specific, clustering methods known under the area of unsupervised learning are explored. This thesis also proposes and tests feature transformations that rely on domain-specific knowledge from the biological constraints of the number of possible alleles at each locus.
+
+This thesis reproduces the experimental setup of \cite{odonnell_clustering_2021} to serve as a baseline for comparison. This thesis then explores the various methods to evaluate their relative performances. In doing so, this thesis produces software code that can be useful for further work.
+
+In addition, more EPG data from the LFTDI has become available for testing. In addition to EPG data from saliva samples studied and presented in \cite{odonnell_clustering_2021}, EPG data from blood samples have also become available. This thesis uses them as test data and presents new results.
+
+\section{Outline of Thesis}
+
+Chapter \ref{ch:Preparatory Work} describes the preparatory work supporting the main experiments in this thesis. Chapter \ref{ch:Clustering Techniques} explores the various clustering techniques under consideration. Chapter \ref{ch:Clustering Experiments} presents and analyzes experiments results. Chapter \ref{ch:Conclusion} concludes the thesis.

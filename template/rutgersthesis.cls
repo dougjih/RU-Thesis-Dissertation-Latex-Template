@@ -20,8 +20,8 @@
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
 \RequirePackage{ifoddpage} % logical page parity checking, used with rotating
 \RequirePackage{rotating}  % for rotated, landscape images
-\RequirePackage[backend=biber,sorting=none,bibstyle=ieee]{biblatex}  % reference manager
-\RequirePackage[toc,page]{appendix}  % for appendices
+\RequirePackage[backend=bibtex,sorting=none,bibstyle=numeric]{biblatex}  % reference manager
+\RequirePackage[toc]{appendix}  % for appendices
 \RequirePackage[normalem]{ulem}  % for underlining text
 \RequirePackage{url} % in case explicit URL's are needed
 \RequirePackage{siunitx} % several functions related to expressing units
@@ -177,9 +177,9 @@ By\\
 \vspace{\baselineskip}
 \MakeUppercase{\yourName}\\
 \vspace{\baselineskip}
-A \MakeLowercase{{\thesisType}}submitted to the\\
+A \MakeLowercase{{\thesisType}} submitted to the\\
 \vspace{\baselineskip}
-School of Graduate Studies\\
+Graduate School-Camden\\
 \vspace{\baselineskip}
 Rutgers, The State University of New Jersey\\
 \vspace{\baselineskip}
@@ -190,7 +190,7 @@ For the degree of\\
 \yourDegree\\
 \vspace{\baselineskip}
 Graduate Program in {\yourProgram}\\
-\vspace{2\baselineskip}
+\vspace{\baselineskip}
 Written under the direction of\\
 \vspace{\baselineskip}
 {\yourDirector}\\
@@ -206,7 +206,7 @@ And approved by\\
     \stepcounter {ct}
 }
 \vfill
-New Brunswick, New Jersey\\
+Camden, New Jersey\\
 \yourMonth{} \yourYear{}
 \end{singlespacing}
 
@@ -369,14 +369,13 @@ Date approved: \@approvaldate
     \phantomsection
     \addcontentsline{toc}{chapter}{Abstract}
     \begin{centering}
-    ABSTRACT OF THE \MakeUppercase{\thesisType}\\
+    \MakeUppercase{\thesisType} ABSTRACT\\
 
-\vspace{\baselineskip}
 \thesisTitle\\
-\vspace{\baselineskip}
 by \MakeUppercase{\yourName}\\
 \vspace{\baselineskip}
-{\thesisType} Director: {\yourDirector}\\
+{\thesisType} Director:\\
+{\yourDirector}\\
 \vspace{2\baselineskip}
     \end{centering}
 }{
