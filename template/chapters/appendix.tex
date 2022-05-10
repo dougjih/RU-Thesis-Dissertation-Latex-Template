@@ -6,11 +6,11 @@
 \thispagestyle{myheadings}
 
 \section{Loci and Alleles}
-\label{section:Loci and Alleles}
+\label{appendix:section:Loci and Alleles}
 
-Table \ref{table:Loci and alleles measured by the GlobalFiler v1 chemistry kit} lists the loci and alleles that are measured by the GlobalFiler v1 chemistry kit, excluding AMEL as it is not in an autosome. The LFTDI uses this kit to collect the EPG data that this thesis uses.
+Table \ref{appendix:table:Loci and alleles measured by the GlobalFiler v1 chemistry kit} lists the loci and alleles that are measured by the GlobalFiler v1 chemistry kit, excluding AMEL as it is not in an autosome. The LFTDI uses this kit to collect the EPG data that this thesis uses.
 
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabularx}{\textwidth}{lX}
 \toprule
@@ -40,348 +40,360 @@ D10S1248 &                                                                      
 \bottomrule
 \end{tabularx}
 \caption{Loci and alleles measured by the GlobalFiler v1 chemistry kit, excluding AMEL as it is not in an autosome}
-\label{table:Loci and alleles measured by the GlobalFiler v1 chemistry kit}
+\label{appendix:table:Loci and alleles measured by the GlobalFiler v1 chemistry kit}
 \end{table}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Additional Results}
 \thispagestyle{myheadings}
-\label{appendix:Additional Results}
+\label{appendix:appendix:Additional Results}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Experiments Results---Mclust Baseline}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_saliva-nruns_1000_mclust}
+\label{appendix:fig:highpass_0-sampleids_saliva-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{table:highpass_0-sampleids_saliva-nruns_1000_mclust}
+\label{appendix:table:highpass_0-sampleids_saliva-nruns_1000_mclust}
 \end{table}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_saliva-nruns_1000_mclust}
+\label{appendix:fig:highpass_71-sampleids_saliva-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{table:highpass_71-sampleids_saliva-nruns_1000_mclust}
+\label{appendix:table:highpass_71-sampleids_saliva-nruns_1000_mclust}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_blood-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_blood-nruns_1000_mclust}
+\label{appendix:fig:highpass_0-sampleids_blood-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_blood-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{table:highpass_0-sampleids_blood-nruns_1000_mclust}
+\label{appendix:table:highpass_0-sampleids_blood-nruns_1000_mclust}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_blood-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_blood-nruns_1000_mclust}
+\label{appendix:fig:highpass_71-sampleids_blood-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_blood-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{table:highpass_71-sampleids_blood-nruns_1000_mclust}
+\label{appendix:table:highpass_71-sampleids_blood-nruns_1000_mclust}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_all-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{fig:highpass_0-sampleids_all-nruns_1000_mclust}
+\label{appendix:fig:highpass_0-sampleids_all-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_all-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{table:highpass_0-sampleids_all-nruns_1000_mclust}
+\label{appendix:table:highpass_0-sampleids_all-nruns_1000_mclust}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_all-nruns_1000_mclust.pdf}
 \caption{Mclust clustering performance metrics using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{fig:highpass_71-sampleids_all-nruns_1000_mclust}
+\label{appendix:fig:highpass_71-sampleids_all-nruns_1000_mclust}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_all-nruns_1000_mclust.tex}
 }
 \caption{Mclust clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{table:highpass_71-sampleids_all-nruns_1000_mclust}
+\label{appendix:table:highpass_71-sampleids_all-nruns_1000_mclust}
 \end{table}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Experiments Results---Individual Clusterers}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from only saliva EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only saliva EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{table:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from only saliva EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only saliva EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{table:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from only blood EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only blood EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{table:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from only blood EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only blood EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{table:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from all EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{fig:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from all EPG data without highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{table:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of clustering metric scores, using admixtures sampled from all EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_metrics.pdf}
 \caption{Top 5 clusterers clustering performance metrics using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{fig:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from all EPG data with highpass filter}
-\label{table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_not_ensemble_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{table:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_by_binomial_confidence}
 \end{table}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Experiments Results---Clusterer Ensembles}
 
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{l}
 \toprule
@@ -402,345 +414,358 @@ hdbscan\_euclidean\_epsilon\_0.0\_eom\_per\_locus\_qua... \\
 \bottomrule
 \end{tabular}
 \caption{Clusterers selected to form cluster ensembles}
-\label{table:Clusterers selected to form cluster ensembles}
+\label{appendix:table:Clusterers selected to form cluster ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{table:highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_0-sampleids_saliva-nruns_1000_cluster_ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{table:highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_71-sampleids_saliva-nruns_1000_cluster_ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_blood-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_blood-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_0-sampleids_blood-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_blood-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{table:highpass_0-sampleids_blood-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_0-sampleids_blood-nruns_1000_cluster_ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_blood-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_blood-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_71-sampleids_blood-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_blood-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{table:highpass_71-sampleids_blood-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_71-sampleids_blood-nruns_1000_cluster_ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, without High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_all-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{fig:highpass_0-sampleids_all-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_0-sampleids_all-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_all-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{table:highpass_0-sampleids_all-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_0-sampleids_all-nruns_1000_cluster_ensembles}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, with High-Pass Filtering}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_all-nruns_1000_cluster_ensembles.pdf}
 \caption{Cluster ensembles clustering performance metrics using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{fig:highpass_71-sampleids_all-nruns_1000_cluster_ensembles}
+\label{appendix:fig:highpass_71-sampleids_all-nruns_1000_cluster_ensembles}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
-\maxsizebox{\textwidth}{0.65\textwidth}{
+\maxsizebox{\textwidth}{0.64\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_all-nruns_1000_cluster_ensembles.tex}
 }
 \caption{Cluster ensembles clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{table:highpass_71-sampleids_all-nruns_1000_cluster_ensembles}
+\label{appendix:table:highpass_71-sampleids_all-nruns_1000_cluster_ensembles}
 \end{table}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \section{Experiments Results---Overall}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from only saliva EPG data without highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_0-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only saliva EPG data without highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples without high-pass filtering}
-\label{table:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Saliva Samples Only, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from only saliva EPG data with highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_71-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only saliva EPG data with highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_saliva-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only saliva samples with high-pass filtering}
-\label{table:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_saliva-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from only blood EPG data without highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_0-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{fig:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only blood EPG data without highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples without high-pass filtering}
-\label{table:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{Blood Samples Only, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from only blood EPG data with highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_71-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{fig:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from only blood EPG data with highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_blood-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from EPGs from only blood samples with high-pass filtering}
-\label{table:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_blood-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, without High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from all EPG data without highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_0-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{fig:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from all EPG data without highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_0-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs without high-pass filtering}
-\label{table:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_0-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
+\FloatBarrier
 \subsection{All Samples, with High-Pass Filtering}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers, including ensembles, by arithmetic mean of clustering metric scores, using admixtures sampled from all EPG data with highpass filter}
-\label{table:top_25_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_metrics_highpass_71-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{./figures/clust_comparison/highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics.pdf}
 \caption{Top 5 clusterers, including ensembles, clustering performance metrics using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{fig:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
+\label{appendix:fig:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_metrics}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000.tex}
 }
 \caption{Top 25 clusterers by arithmetic mean of percentages of perfect clustering, using admixtures sampled from all EPG data with highpass filter}
-\label{table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000}
+\label{appendix:table:top_25_clusterers_by_binomial_confidence_highpass_71-sampleids_all-nruns_1000}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \maxsizebox{\textwidth}{0.65\textwidth}{
 \input{./tables/clust_comparison/highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence.tex}
 }
 \caption{Top 5 clusterers, including ensembles, clustering percentages of trials where no error occurs using 1000 trials sampled from all EPGs with high-pass filtering}
-\label{table:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
+\label{appendix:table:highpass_71-sampleids_all-nruns_1000_top_5_clusterers_including_ensembles_by_binomial_confidence}
 \end{table}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Software Work}
 \thispagestyle{myheadings}
-\label{appendix:Software Work}
+\label{appendix:appendix:Software Work}
 
 A large amount of work involved in this thesis is under the surface in the software.
 
 \section{Software Setup}
 
+\FloatBarrier
 \subsection{Code Repositories}
 
 A copy of the software code for this thesis is in the following locations:
@@ -753,6 +778,7 @@ A copy of the software code for this thesis is in the following locations:
 
 These repositories currently allow only private access at the direction of the LFTDI, which owns the input data for the experiments.
 
+\FloatBarrier
 \subsection{Programming Environment}
 
 The software code of this project is written in the Python programming language. Python 3.9.2 is used with a venv. Some supporting functions are implemented in makefile and shell scripts.
@@ -765,11 +791,12 @@ For reference management, Zotero is used.
 
 For thesis production, Miktex and TeXworks are used.
 
+\FloatBarrier
 \subsection{Python Packages}
 
-The software code in this thesis imports the Python packages shown in Table \ref{table:Python Packages}. Transitive dependencies are not shown. Pip, a package-management system for Python, is used.
+The software code in this thesis imports the Python packages shown in Table \ref{appendix:table:Python Packages}. Transitive dependencies are not shown. Pip, a package-management system for Python, is used.
 
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{ll}
 \toprule
@@ -788,14 +815,14 @@ ClusterEnsembles &   1.0.1 \\
 \bottomrule
 \end{tabular}
 \caption{Python packages used in the thesis software code}
-\label{table:Python Packages}
+\label{appendix:table:Python Packages}
 \end{table}
 
 \section{Hardware Setup}
 
-The computational experiments in this thesis were done on a personal computer with the components shown in Table \ref{table:Computer Configuration}.
+The computational experiments in this thesis were done on a personal computer with the components shown in Table \ref{appendix:table:Computer Configuration}.
 
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{ll}
 \toprule
@@ -810,11 +837,12 @@ Operating System (Development) &                                  Debian 11.2 \\
 \bottomrule
 \end{tabular}
 \caption{Computer Configuration}
-\label{table:Computer Configuration}
+\label{appendix:table:Computer Configuration}
 \end{table}
 
 \section{Known Issues}
 
+\FloatBarrier
 \subsection{Parallelization}
 
 Many of the various software libraries cannot or do not automatically parallelize their computational workloads. In particular, mclust is time-consuming and appears to saturate only two threads. Pandas also does not parallelize much of its work.
@@ -823,6 +851,7 @@ Where feasible, easy parallelization is done by using Joblib in Python and runni
 
 For a solution that is truly distributed and more flexible, Dask is promising.
 
+\FloatBarrier
 \subsection{Memory Limitation}
 
 Computer memory limitation is a problem for running computation work on the data sets in this project, especially when multiple workloads are run in parallel. Much of this is due to the simplistic implementation of the code that loads all the data into memory. A more sophisticated implementation that streams the data, or one that uses a backend with a ``lazy execution'' approach such as that Dask provides, can mitigate much of the problem.

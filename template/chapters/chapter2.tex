@@ -11,7 +11,7 @@ Various preparatory and exploratory work is necessary prior to performing the cl
 The EPG data files from the LFTDI are in a specific format. For this thesis project, these data files are considered the raw inputs. Table \ref{table:Excerpt of an LFTDI EPG data file} shows an example portion of an LFTDI data file. Each row is associated with a unique combination of ``Sample File'' and ``Marker''; and it is followed by a variable number of allele-size-height tuples. This data format is not suitable for clustering algorithms, as they expect a row for each data sample, and a column for each feature. (Alternatively, they often also accept a matrix of pre-computed pairwise distances.) Therefore, a transformation of the raw data into a different format is necessary.
 
 \begin{landscape}
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{llllrrlrr}
 \toprule
@@ -73,7 +73,7 @@ In contrast, in real forensic use cases, the true genotypes are unknown. There i
 Table \ref{table:Excerpt of an EPG data file after preprocessing} shows an excerpt of EPG data after preprocessing. Each row is a distinct sample file, and each column is a distinct tuple of locus, allele, and measurement.
 
 \begin{landscape}
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{lrrr}
 \toprule
@@ -130,7 +130,7 @@ Simulated admixtures are generated from the 2,477 available single-cell EPG data
 
 The simulated admixtures follow the design in \cite{odonnell_clustering_2021}, with 11 types of admixtures of various numbers of contributors and mixture ratios as shown in Table \ref{table:Admixture types simulated}. In this thesis, 1,000 trial runs of each admixture type are generated using pseudo-random selection of genotypes and EPGs.
 
-\begin{table}
+\begin{table}[htbp]
 \centering
 \begin{tabular}{ccc}
 \toprule
@@ -235,7 +235,7 @@ Source ID & Count \\
       60A &    40 \\
 \end{longtable}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{rrr}
 \toprule
@@ -248,7 +248,7 @@ Source ID & Count \\
 \label{table:Counts of genotypes by sample type}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{rrr}
 \toprule
