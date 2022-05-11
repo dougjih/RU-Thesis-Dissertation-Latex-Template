@@ -323,17 +323,17 @@ Date approved: \@approvaldate
 \renewcommand{\cftchappresnum}{Chapter }
 \renewcommand{\cftchapaftersnum}{:}
 \renewcommand{\cftchapnumwidth}{5em}
-\renewcommand{\cftchapafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
-\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  % set correct spacing for entries in single space environment
-\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
-\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
+%\renewcommand{\cftchapafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
+%\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  % set correct spacing for entries in single space environment
+%\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
+%\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
     \currentpdfbookmark{Table of Contents}{TOC}
     \renewcommand\contentsname{Table of Contents}
-    \begin{singlespace}
+%    \begin{singlespace}
     \tableofcontents
-    \end{singlespace}
+%    \end{singlespace}
     \clearpage
 }
 
@@ -341,10 +341,10 @@ Date approved: \@approvaldate
 \newcommand{\makeListOfTables}{
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Tables}
-\begin{singlespace}
-\setlength\cftbeforetabskip{\baselineskip}  % manually set spacing between entries
+%\begin{singlespace}
+%\setlength\cftbeforetabskip{\baselineskip}  % manually set spacing between entries
 \listoftables
-\end{singlespace}
+%\end{singlespace}
 \clearpage
 }
 
@@ -352,10 +352,10 @@ Date approved: \@approvaldate
 \newcommand{\makeListOfFigures}{
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
-\begin{singlespace}
-\setlength\cftbeforefigskip{\baselineskip}  % manually set spacing between entries
+%\begin{singlespace}
+%\setlength\cftbeforefigskip{\baselineskip}  % manually set spacing between entries
 \listoffigures
-\end{singlespace}
+%\end{singlespace}
 \clearpage
 }
 
