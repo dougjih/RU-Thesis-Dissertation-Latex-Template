@@ -198,14 +198,19 @@ Written under the direction of\\
 \vspace{\baselineskip}
 And approved by\\
 \vspace{2\baselineskip}
-\newcounter{ct}
-\setcounter{ct}{0}
-\whiledo {\value{ct} < \yourCommitteeNumber}
-{
-    \underline{\hbox to 8cm{}}\\
-    \vspace{\baselineskip}
-    \stepcounter {ct}
-}
+
+\underline{\hbox to 8cm{}}\\
+Iman Dehzangi\\
+\vspace{\baselineskip}
+
+\underline{\hbox to 8cm{}}\\
+Catherine Grgicak\\
+\vspace{\baselineskip}
+
+\underline{\hbox to 8cm{}}\\
+Desmond Lun\\
+\vspace{\baselineskip}
+
 \vfill
 Camden, New Jersey\\
 \yourMonth{} \yourYear{}
